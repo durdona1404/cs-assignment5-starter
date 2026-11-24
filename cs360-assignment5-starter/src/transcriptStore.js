@@ -46,7 +46,7 @@ getStudentIDs(name) {
     const parsedID = this.#requireStudent(studentID).studentID;
     const normalizedCourse = String(course ?? "").trim().toUpperCase();
     if (!normalizedCourse) {
-      throw new Error("Course name is required");
+      throw new Error("Course name must not be empty");
     }
     const numericGrade = Number(grade);
     if (!Number.isInteger(numericGrade) || numericGrade < 0 || numericGrade > 100) {
