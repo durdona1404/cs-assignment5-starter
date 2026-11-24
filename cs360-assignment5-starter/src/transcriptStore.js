@@ -45,7 +45,6 @@ export class TranscriptStore {
     const parsedID = this.#requireStudent(studentID).studentID;
     const normalizedCourse = this.#normalizeCourse(course);
     const numericGrade = this.#parseGrade(grade);
-
     const studentGrades = this.#grades.get(parsedID) ?? new Map();
     if (studentGrades.has(normalizedCourse)) {
       throw new Error(`Grade already exists for course ${normalizedCourse}`);
