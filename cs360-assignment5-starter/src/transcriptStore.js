@@ -14,15 +14,16 @@ export class TranscriptStore {
     return studentID;
   }
 
-  getStudentIDs(name) {
-    const matches = [];
-    for (const student of this.#students.values()) {
-      if (name === undefined || student.studentName === String(name)) {
-        matches.push(student.studentID);
-      }
+getStudentIDs(name) {
+  const matches = [];
+  const query = name == null ? null : String(name).trim().toLowerCase();
+  for (const student of this.#students.values()) {
+    if (query === null || student.studentName.toLowerCase() === query) {
+      matches.push(student.studentID);
     }
-    return matches;
   }
+  return matches;
+}
 
   getTranscript(studentID) {
     const student = this.#requireStudent(studentID);
