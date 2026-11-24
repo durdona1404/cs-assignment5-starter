@@ -1,3 +1,4 @@
+// TranscriptStore core module
 export class TranscriptStore {
   #students = new Map();
   #grades = new Map();
